@@ -53,6 +53,7 @@ lcdapiapi_HEADERS = \
 lcdapikeysdir = $(includedir)/lcdapi/keys
 lcdapikeys_HEADERS = \
 	lcdapi/keys/LCDCallback.h
+	lcdapi/keys/LCDKeyEvent.h
 lcdapimenusdir = $(includedir)/lcdapi/menus
 lcdapimenus_HEADERS = \
 	lcdapi/menus/LCDMenuEventHandler.h
@@ -66,7 +67,8 @@ lcdapisensors_HEADERS = \
 
 liblcdapi_la_CXXFLAGS = \
 	-Wall -Wextra -Weffc++ -Wold-style-cast \
-	-Werror -Wno-error=unused-parameter -Wno-error=unused-function \
+	-Werror \
+	-fdiagnostics-color=always \
 	-fPIC \
 	-g0 -DNODEBUG -Os
 

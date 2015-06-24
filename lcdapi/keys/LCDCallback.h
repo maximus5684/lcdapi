@@ -19,6 +19,7 @@
 #ifndef _LCDAPI_KEYS_LCDCALLBACK_H_
 #define _LCDAPI_KEYS_LCDCALLBACK_H_
 
+#include <lcdapi/keys/LCDKeyEvent.h>
 #include <string>
 #include <map>
 
@@ -47,7 +48,7 @@ namespace lcdapi {
  * Use it with the name of the pseudo function you want to create
  *  and then you can define your function code (between braces)
  */
-#define LCD_CALLBACK_FUNCTION_BEGIN(fname) class LCDClass_fname : public LCDCallback \
+#define LCD_CALLBACK_FUNCTION_BEGIN(fname) class LCDClass_##fname : public LCDCallback \
 { \
 public: \
   void keypress(KeyEvent lcdKey)
@@ -61,20 +62,13 @@ public: \
  */
 #define LCD_CALLBACK_FUNCTION_END(fname) \
 }; \
-LCDClass_fname fname;
-
-/**
-  \ingroup keys
-  The type used to define a key event.
- */
-
-typedef std::string KeyEvent;
+LCDClass_##fname fname;
 
 /** \class LCDCallback LCDCallback.h "api/LCDCallback.h"
  *  \brief Main class to create new callback for key events.
  *  \ingroup keys
- *  To create a new key handler, one should create a derivated class
- *  from this one and implement operator ().
+ *  To create a new key handler, one should subclass LCDCallback,
+ *  and implement operator().
  */
 
 class LCDCallback
