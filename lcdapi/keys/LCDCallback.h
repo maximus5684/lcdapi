@@ -64,7 +64,7 @@ public: \
 }; \
 LCDClass_##fname fname;
 
-/** \class LCDCallback LCDCallback.h "api/LCDCallback.h"
+/** \class LCDCallback LCDCallback.h "keys/LCDCallback.h"
  *  \brief Main class to create new callback for key events.
  *  \ingroup keys
  *  To create a new key handler, one should subclass LCDCallback,

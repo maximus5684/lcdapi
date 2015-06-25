@@ -24,24 +24,39 @@ namespace lcdapi {
 using namespace std;
 
 LCDMenuItem::LCDMenuItem(const string &id, LCDElement *parent, const string &menuItemType)
-    : LCDElement(id, "menu_add_item", menuItemType, parent),
+    : LCDElement(id, ((parent->getId().substr(0,7) == "LCDAPI_") ? "menu_add_item \"\" " : "menu_add_item "), menuItemType, parent),
     _menuItemType(menuItemType),
     _text(),
     _isHidden(false),
     _next(),
-    _prev()
+    _prev(),
+    _optionsList()
 {
     _elementDel = "menu_del_item";
+}
+
+LCDMenuItem::LCDMenuItem(const string &id, LCDElement *parent, const string &menuItemType, const string &text)
+    : LCDElement(id, ((parent->getId().substr(0,7) == "LCDAPI_") ? "menu_add_item \"\" " : "menu_add_item "), menuItemType, parent),
+    _menuItemType(menuItemType),
+    _text(text),
+    _isHidden(false),
+    _next(),
+    _prev(),
+    _optionsList()
+{
+    _elementDel = "menu_del_item";
+    _optionsList["text"] = text;
+    notifyChanged();
 }
 
 void LCDMenuItem::setText(const string &text)
 {
     _text = text;
-    _optionsList["text",text];
+    _optionsList["text"] = text;
     notifyChanged();
 }
 
-string LCDMenuItem::getText()
+const string& LCDMenuItem::getText() const
 {
     return _text;
 }
@@ -49,28 +64,21 @@ string LCDMenuItem::getText()
 void LCDMenuItem::isHidden(bool hide)
 {
     _isHidden = hide;
-    if (hide)
-    {
-        _optionsList["is_hidden", "true"];
-    }
-    else
-    {
-        _optionsList["is_hidden", "false"];
-    }
+    _optionsList["is_hidden"] = (hide ? "true" : "false");
     notifyChanged();
 }
 
 void LCDMenuItem::setNext(const string &menuId)
 {
     _next = menuId;
-    _optionsList["next", menuId];
+    _optionsList["next"] = menuId;
     notifyChanged();
 }
 
 void LCDMenuItem::setPrev(const string &menuId)
 {
     _prev = menuId;
-    _optionsList["prev", menuId];
+    _optionsList["prev"] = menuId;
     notifyChanged();
 }
 
@@ -93,7 +101,7 @@ void LCDMenuItem::notifyChanged()
                 << " ";
     }
     _optionsList.clear();
-    setMenuItemOptions(options);
+    setMenuItemOptions(options.str());
 }
 
 } // end of lcdapi namespace

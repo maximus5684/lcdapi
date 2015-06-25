@@ -96,7 +96,6 @@ class LCDMenuItem : public LCDElement
          * @param menuId the id of the menu item to be shown.
          */
         void setPrev(const std::string &menuId);
-        virtual void valueCallback(const std::string& value) = 0;
 };
 
 } // end of lcdapi namespace

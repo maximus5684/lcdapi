@@ -44,31 +44,17 @@ LCDElement::LCDElement(const string &id, const string &addCommand, const string 
   {
     const LCDLock l(&LCDElement::_elementMutex);
     ostringstream idBuffer;
-    if (dynamic_cast<const LCDMenuItem*>(this))
-    {
-      idBuffer << "\"\"";
-    }
-    else
-    {
-      idBuffer << "LCDAPI_"
-               << getpid()
-               << "_"
-               << LCDElement::_elementCounter;
-    }
+    idBuffer << "LCDAPI_"
+             << getpid()
+             << "_"
+             << LCDElement::_elementCounter;
 
     LCDElement::_elementCounter++;
     _id = idBuffer.str();
   }
   else
   {
-    if (dynamic_cast<const LCDMenuItem*>(this))
-    {
-      _id = "\"" + id + "\"";
-    }
-    else
-    {
-      _id = id;
-    }
+    _id = id;
   }
   if (_parent)
   {

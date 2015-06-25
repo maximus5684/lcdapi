@@ -121,6 +121,8 @@
 
 /* Menus */
 #include <lcdapi/menus/LCDMenuEventHandler.h>
+#include <lcdapi/api/LCDMenuItem.h>
+#include <lcdapi/api/LCDMenu.h>
 
 /* Sensors */
 #include <lcdapi/sensors/LCDTimeSensor.h>

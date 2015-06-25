@@ -13,6 +13,8 @@ liblcdapi_la_SOURCES = \
 	lcdapi/api/LCDIcon.cpp \
 	lcdapi/api/LCDLock.cpp \
 	lcdapi/api/LCDMutex.cpp \
+	lcdapi/api/LCDMenu.cpp \
+	lcdapi/api/LCDMenuItem.cpp \
 	lcdapi/api/LCDScreen.cpp \
 	lcdapi/api/LCDScroller.cpp \
 	lcdapi/api/LCDText.cpp \
@@ -43,6 +45,8 @@ lcdapiapi_HEADERS = \
 	lcdapi/api/LCDIcon.h \
 	lcdapi/api/LCDLock.h \
 	lcdapi/api/LCDMutex.h \
+	lcdapi/api/LCDMenu.h \
+	lcdapi/api/LCDMenuItem.h \
 	lcdapi/api/LCDScreen.h \
 	lcdapi/api/LCDScroller.h \
 	lcdapi/api/LCDText.h \
@@ -67,8 +71,7 @@ lcdapisensors_HEADERS = \
 
 liblcdapi_la_CXXFLAGS = \
 	-Wall -Wextra -Weffc++ -Wold-style-cast \
-	-Werror \
-	-fdiagnostics-color=always \
+	-Werror -Wno-error=unused-parameter -Wno-error=unused-function \
 	-fPIC \
 	-g0 -DNODEBUG -Os
 

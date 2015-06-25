@@ -36,3 +36,5 @@
 /docs/doxyfile.stamp
 /lcdapi-*.tar.gz
 /docs/doxygen_sqlite3.db
+
+*.swp
