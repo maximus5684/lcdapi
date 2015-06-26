@@ -15,6 +15,7 @@
    You should have received a copy of the GNU Lesser General Public
    License along with lcdapi.  If not,
    see <http://www.gnu.org/licenses/>. */
+#define DEBUG
 
 #ifndef _LCDAPI_API_LCDCONNECTION_H_
 #define _LCDAPI_API_LCDCONNECTION_H_

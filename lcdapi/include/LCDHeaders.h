@@ -123,6 +123,7 @@
 #include <lcdapi/menus/LCDMenuEventHandler.h>
 #include <lcdapi/api/LCDMenuItem.h>
 #include <lcdapi/api/LCDMenu.h>
+#include <lcdapi/api/LCDMenuNumeric.h>
 
 /* Sensors */
 #include <lcdapi/sensors/LCDTimeSensor.h>

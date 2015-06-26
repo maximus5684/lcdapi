@@ -82,7 +82,7 @@ void LCDMenuItem::setPrev(const string &menuId)
 
 void LCDMenuItem::setMenuItemOptions(const string &options)
 {
-    sendCommand("menu_set_item", options);
+    sendCommand(((_parent->getId().substr(0,7) == "LCDAPI_") ? "menu_set_item \"\" " : "menu_set_item "), options);
 }
 
 void LCDMenuItem::notifyChanged()

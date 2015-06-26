@@ -15,6 +15,7 @@ liblcdapi_la_SOURCES = \
 	lcdapi/api/LCDMutex.cpp \
 	lcdapi/api/LCDMenu.cpp \
 	lcdapi/api/LCDMenuItem.cpp \
+	lcdapi/api/LCDMenuNumeric.cpp \
 	lcdapi/api/LCDScreen.cpp \
 	lcdapi/api/LCDScroller.cpp \
 	lcdapi/api/LCDText.cpp \
@@ -47,6 +48,7 @@ lcdapiapi_HEADERS = \
 	lcdapi/api/LCDMutex.h \
 	lcdapi/api/LCDMenu.h \
 	lcdapi/api/LCDMenuItem.h \
+	lcdapi/api/LCDMenuNumeric.h \
 	lcdapi/api/LCDScreen.h \
 	lcdapi/api/LCDScroller.h \
 	lcdapi/api/LCDText.h \
