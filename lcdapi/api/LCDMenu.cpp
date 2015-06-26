@@ -22,19 +22,17 @@ namespace lcdapi {
 
 using namespace std;
 
-LCDMenu::LCDMenu(LCDElement *parent, const string &id) : LCDMenuItem(id, parent, "menu")
+LCDMenu::LCDMenu(const string &text, LCDElement *parent, const string &id) : LCDMenuItem(id, parent, "menu", text)
 {
 }
 
 LCDMenu::LCDMenu(const string &text, const bool &isHidden, const string &next, const string &prev, LCDElement *parent, const string &id)
-    : LCDMenuItem(id, parent, "menu")
+    : LCDMenuItem(id, parent, "menu", text)
 {
-    _text = text;
     _isHidden = isHidden;
     _next = next;
     _prev = prev;
 
-    _optionsList["text"] = text;
     _optionsList["is_hidden"] = (isHidden ? "true" : "false");
     _optionsList["next"] = next;
     _optionsList["prev"] = prev;

@@ -36,7 +36,7 @@ LCDMenuItem::LCDMenuItem(const string &id, LCDElement *parent, const string &men
 }
 
 LCDMenuItem::LCDMenuItem(const string &id, LCDElement *parent, const string &menuItemType, const string &text)
-    : LCDElement(id, ((parent->getId().substr(0,7) == "LCDAPI_") ? "menu_add_item \"\" " : "menu_add_item "), menuItemType, parent),
+    : LCDElement(id, ((parent->getId().substr(0,7) == "LCDAPI_") ? "menu_add_item \"\" " : "menu_add_item "), menuItemType + " -text " + text, parent),
     _menuItemType(menuItemType),
     _text(text),
     _isHidden(false),
@@ -45,8 +45,6 @@ LCDMenuItem::LCDMenuItem(const string &id, LCDElement *parent, const string &men
     _optionsList()
 {
     _elementDel = "menu_del_item";
-    _optionsList["text"] = text;
-    notifyChanged();
 }
 
 void LCDMenuItem::setText(const string &text)
