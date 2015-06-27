@@ -34,8 +34,8 @@ LCDMenu::LCDMenu(const string &text, const bool &isHidden, const string &next, c
     _prev = prev;
 
     _optionsList["is_hidden"] = (isHidden ? "true" : "false");
-    _optionsList["next"] = next;
-    _optionsList["prev"] = prev;
+    _optionsList["next"] = (next.empty() ? "\"\"" : next);
+    _optionsList["prev"] = (prev.empty() ? "\"\"" : prev);
     notifyChanged();
 }
 

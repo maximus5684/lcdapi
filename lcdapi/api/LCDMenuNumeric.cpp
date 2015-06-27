@@ -42,8 +42,8 @@ LCDMenuNumeric::LCDMenuNumeric(const string &text, const bool &isHidden, const s
     _prev = prev;
 
     _optionsList["is_hidden"] = (isHidden ? "true" : "false");
-    _optionsList["next"] = next;
-    _optionsList["prev"] = prev;
+    _optionsList["next"] = (next.empty() ? "\"\"" : next);
+    _optionsList["prev"] = (prev.empty() ? "\"\"" : prev);
     _optionsList["value"] = LCDUtils::toString(value);
     _optionsList["minvalue"] = LCDUtils::toString(minValue);
     _optionsList["maxvalue"] = LCDUtils::toString(maxValue);

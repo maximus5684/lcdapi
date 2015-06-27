@@ -50,7 +50,7 @@ LCDMenuItem::LCDMenuItem(const string &id, LCDElement *parent, const string &men
 void LCDMenuItem::setText(const string &text)
 {
     _text = text;
-    _optionsList["text"] = text;
+    _optionsList["text"] = (text.empty() ? "\"\"" : text);
     notifyChanged();
 }
 
@@ -69,14 +69,14 @@ void LCDMenuItem::isHidden(bool hide)
 void LCDMenuItem::setNext(const string &menuId)
 {
     _next = menuId;
-    _optionsList["next"] = menuId;
+    _optionsList["next"] = (menuId.empty() ? "\"\"" : menuId);
     notifyChanged();
 }
 
 void LCDMenuItem::setPrev(const string &menuId)
 {
     _prev = menuId;
-    _optionsList["prev"] = menuId;
+    _optionsList["prev"] = (menuId.empty() ? "\"\"" : menuId);
     notifyChanged();
 }
 
